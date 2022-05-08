@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/main.css">
+    ^^
+    self.menuItem = lambda url, ja, en: f'<a href="{url}" class="m language ja" hidden>{ja}</a>' \
+      f'<a href="{url}" class="m language en" hidden>{en}</a>'
+    head
+    ^^
+    <title>^^
+      try: return f"{title} | RT Dicsord Bot"
+      except NameError: return "..."
+    ^^</title>
+    <meta name="theme-color" content="#6E3DD9">
+    <link rel="icon" href="/img/favicon.ico">
+    <script type="module">
+      // アカウントのログイン処理をする。
+
+      import { replaceLanguage } from "/js/language.js";
+      import { API } from "/js/utils.js";
+
+      replaceLanguage();
+
+      fetch(new Request(`${API}/account/fetch?${document.cookie}`))
+        .then(response => { return response.json(); })
+        .then(data => {
+          if (data.status == 200 && data.data) {
+            data = data.data;
+            document.getElementById("login").remove();
+            document.getElementById("userName").innerText = data.name;
+            document.getElementById("account").setAttribute("style", "display: inline !important;");
+          };
+        });
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">RT Discord Bot</a>
+      <div class="margin"></div>
+      <label class="menu">
+        <input type="checkbox">
+        <div class="menu-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="menu-list">
+          ^^ self.menuItem("/news.html", "ホーム", "Home") ^^
+          ^^ self.menuItem("/news.html", "ニュース", "News") ^^
+          ^^ self.menuItem("/help.html", "ヘルプ", en="Help") ^^
+          ^^ self.menuItem("/plan.html", "プラン", en="Plan") ^^
+          ^^ self.menuItem("https://discord.gg/ugMGw5w", "サポートサーバー", "Support Server") ^^
+          ^^ self.menuItem(
+            "/account/login", "ログイン", "Login"
+          ).replace("m", "m login").replace("hidden", 'id="login" hidden') ^^
+          <span class="m account" id="account">
+            <a class="name" id="userName"></a>
+            <div class="dropdown">
+              <a href="/dashboard">Dashboard</a>
+              <a href="/api/account/logout">Log out</a>
+            </div>
+          </span>
+        </div>
+      </label>
+    </header>
+    ^^ content ^^
+    <footer>
+      <div class="menu">
+        <a href="/">
+          <img src="/img/icon.png">
+        </a>
+        <div class="menu-list">
+          <div class="item">
+            <div class="m-title">Main</div>
+            <div>
+              <a href="/news.html" class="language ja" hidden>ニュース</a>
+              <a href="/news.html" class="language en" hidden>News</a>
+            </div>
+            <div>
+              <a href="/help.html" class="language ja" hidden>ヘルプ</a>
+              <a href="/help.html" class="language en" hidden>Help</a>
+            </div>
+            <div>
+              <a href="/plan.html" class="language ja" hidden>プラン</a>
+              <a href="/plan.html" class="language en" hidden>Plan</a>
+            </div>
+            <div>
+              <a href="/credit.html" class="language ja" hidden>クレジット</a>
+              <a href="/credit.html" class="language en" hidden>Credit</a>
+            </div>
+            <div>
+              <a href="/terms.html" class="language ja" hidden>利用規約</a>
+              <a href="/terms.html" class="language en" hidden>Terms of Uses</a>
+            </div>
+            <div>
+              <a href="/privacy.html" class="language ja" hidden>プライバシーポリシー</a>
+              <a href="/privacy.html" class="language en" hidden>Privacy Policy</a>
+            </div>
+            <div>
+              <a href="/status.html">Status</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="m-title">Help</div><!--
+            <div>
+              <a href="/help.html?g=other">Other</a>
+            </div>-->
+          </div>
+          <div class="item">
+            <div class="m-title">Links</div>
+            <div>
+              <a href="https://discord.gg/ugMGw5w" target="_blank" class="language ja" hidden>サポートサーバー</a>
+              <a href="https://discord.gg/ugMGw5w" target="_blank" class="language en" hidden>Support Server</a>
+            </div>
+            <div>
+              <a href="https://github.com/RextTeam" target="_blank">GitHub</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="m-title">Dashboard</div>
+            <div>
+              <a href="/dashboard">Home</a>
+            </div>
+            <div>
+              <a href="/account/login">Login</a>
+            </div>
+            <div>
+              <a href="/account/logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">Copyright © 2020-2022 Rext. All Rights Reserved.</div>
+    </footer>
+  </body>
+</html>

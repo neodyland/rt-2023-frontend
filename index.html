@@ -1,0 +1,168 @@
+^^
+ol = lambda datas: \
+    f'<ol>{"".join(f"<li>{t(ja=ja, en=en)}</li>" for ja, en in datas)}</ol>'
+SNSE = "(Sorry, this feature is only supported in Japan at this time. So coming soon...)"
+
+await self.layout(
+    title="Home",
+    content=f'''
+<div class="index-html">
+    <div class="top">
+        <div>
+            <h1>RT Discord Bot</h1>
+            <p>{t(
+              ja="このBotだけで管理が済むとにかく多機能な次世代Bot",
+              en="Convenient, feature-rich, modern Bot"
+            )}</p>
+        </div>
+    </div>
+    <div class="content">
+        <h1>About</h1>
+        {t(
+          ja="""
+        RTはDiscordのとあるBotでとにかく多機能でこのBotだけでサーバー管理が済んでしまうという次世代Botです。<br>
+        強いて言えば読み上げと音楽プレイヤーがありサブのRTもあるので、もしかしたら音楽Botそして読み上げBotもRTに置き換えられますね。
+          """, en="""
+          RT is a Discord Bot that can do everything most Bots can.<br>
+          You will only need this Bot to manage the server.
+          """
+        )}
+    </div>
+    <hr>
+    <div class="introduce-wrapper">
+        <div class="introduce-wrapper-white">
+            <div class="introduce">
+                <img src="/img/introduce/tool.png">
+            </div>
+            <div class="introduce">
+                {t(
+                  ja="豊富なサーバー管理に使えるツールなどの機能",
+                  en="Tools and server management tools",
+                  tag="h2"
+                )}
+                {t(ja="以下のようなサーバーツールがあります。", en="The tools are:")}
+                {ol((
+                  ("役職, 投票, 募集, チケット パネル", "Role, vote, recruitment, ticket panel"),
+                  ("カスタム可能なチャンネルステータス", "Customizable channel status"),
+                  ("チャンネルのロック/アンロック", "Lock/Unlock channel"),
+                  ("スレッドマネージャー (スレッド自動アーカイブ防止など)", "Thread manager (e.g. archive stopper)"),
+                  ("自己紹介テンプレートに使えるいつも下にくる強制ピン留め", "A forced pinning feature that creates a message that always comes to the bottom, is useful for self-introduction templates."),
+                  ("フィールドも設定が可能な埋め込み作成コマンド", "Create embed with configurable fields as well."),
+                  ("特定のロールが付与/剥奪された際に他を付与/剥奪する機能", "Ability to grant/strip other roles when a specific role is granted/stripped."),
+                  ("自動返信", "Auto Reply"), ("ボイスチャンネルに入ったら付与されるロール", "Roles granted when users enter a voice channel."),
+                  ("その他諸々", "various other things")
+                ))}
+            </div>
+        </div>
+        <br>
+        <div class="introduce-wrapper-black">
+            <div class="introduce">
+                {t(ja="便利な機能", en="Convenient", tag="h2")}
+                {t(
+                  ja="以下のような便利なサーバーツールがあります。",
+                  en="Some useful server tools are:"
+                )}
+                {ol((
+                    ("レベル機能、レベルロール", "Level, Level reward"),
+                    ("引用のように表示するメッセージリンク展開", "Message link expansion to be displayed as a quote"),
+                    ("翻訳チャンネル", "Auto translation channel"),
+                    ("URL短縮", "URL Shortener"), ("bump/up 通知", "bump/up notification"),
+                    ("NSFW誤爆対策の自動スポイラー", "Automatic spoiler for NSFW misfire prevention"),
+                    ("自動リアクション付与", "Auto reaction"),
+                    ("Yahoo検索、「とは」を最後に入れると検索ボタンが表示される。", "A Gentle World"),
+                    ("ユーザーIDから情報とアイコンURLの表示", "Displays icon and information from user id."),
+                    ("その他諸々", "various other things")
+                ))}
+            </div>
+            <div class="introduce">
+                <img src="/img/introduce/kirakira.png">
+            </div>
+        </div>
+        <br>
+        <div class="introduce-wrapper-white">
+            <div class="introduce">
+                <img src="/img/introduce/safe.png">
+            </div>
+            <div class="introduce">
+                {t(
+                    ja="""<h2>荒らし対策に使える機能</h2>
+                    最近ツールを使い自動でアカウントにスパムさせて荒らすというのが増えています。<br>
+                    そういう荒らし用捨てアカウントは画像,Web,合言葉認証で対策ができます。<br>
+                    そしてAutoMod機能を使うことでスパムを繰り返したらミュートやBANをすることもできます。<br>
+                    また招待リンク規制や絵文字制限などもできます。<br>
+                    さらに危険人物リストにあるユーザーをBANをするGBANというのもあります。""",
+                    en="""<h2>Features that can be used to prevent vandalism</h2>
+                    More and more people are using tools to spam their accounts automatically.<br>
+                    You can use images, the web, and password authentication to solve the problem.<br>
+                    You can also use AutoMod to mute or BAN your spam and restrict invitation links and emoji.<br>
+                    In addition, there is GBAN that BANs users on the dangerous person list."""
+                )}
+            </div>
+        </div>
+        <br>
+        <div class="introduce-wrapper-black">
+            <div class="introduce">
+                {t(
+                    ja="""<h2>音楽プレイヤー</h2>
+                    現時点でYouTube,ニコニコ動画,SoundCloudが再生できる音楽プレイヤーです。<br>
+                    またプレイリストを十個まで作れ一つのプレイリストに八百まで曲データを保存できます。<br>
+                    お手軽にお気に入り曲を全て再生できます。""",
+                    en="""<h2>Music Player</h2>
+                    It is a music player that can play YouTube, Nico Nico Douga, and SoundCloud at the moment.<br>
+                    You can also create up to ten playlists that can contain up to 800 songs."""
+                )}
+            </div>
+            <div class="introduce">
+                <img src="/img/introduce/onpu.png">
+            </div>
+        </div>
+        <br>
+        <div class="introduce-wrapper-white">
+            <div class="introduce">
+                <img src="/img/introduce/tts.png">
+            </div>
+            <div class="introduce">
+                {t(
+                    ja="""<h2>読み上げ</h2>
+                    声の種類を変更可能な読み上げ機能です。<br>
+                    ゆっくり霊夢やゆっくり魔理沙にも声を変更可能です。<br>
+                    また辞書機能もあります。<br>
+                    しかもお気に入りの<s>淫夢</s>素材を登録して読み上げ中に使いみんなを笑わすこともできます。(笑)""",
+                    en="""<h2>TTS</h2>
+                    Reads out messages sent to the text channel in the voice channel.<br>
+                    You can also play a meme sound source while reading out loud."""
+                )}
+            </div>
+        </div>
+        <div class="introduce-wrapper-black">
+            <div class="introduce">
+                {t(
+                    ja="<h2>その他娯楽など</h2>以下のような娯楽などの機能もあります。",
+                    en="<h2>Fun</h2>The following entertainment and other functions are available."
+                )}
+                {ol((
+                    ("指定した地域の天気予報を毎日指定した時間にDMに送らせる機能",
+                     f"Weather forecast notification {SNSE}"),
+                    ("マインスイーパーをする。", "Play minesweeper"),
+                    ("Minecraft(Java版)のユーザーのスキンを表示", "Displays skin of Minecraft (java) user."),
+                    ("今日は何の日か表示、毎日指定したチャンネルに送信", "Never gonna give you up"),
+                    ('<a href="https://www3.nhk.or.jp/news/">NHKニュース</a>の最新ニュース表示',
+                     f'<a href="https://www3.nhk.or.jp/news/">NHK News (Japanese)</a> {SNSE}'),
+                    ('<a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a>の最新のニュース表示',
+                     f'Show <a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a> {SNSE}')
+                ))}
+            </div>
+            <div class="introduce">
+                <img src="/img/introduce/gamepad.png">
+            </div>
+        </div>
+    </div>
+    <div class="content" style="padding: 5rem 20%;">
+        {t(
+            ja="さあ、あなたのサーバーにもRTを導入しよう！", en="Let's invite me!", tag="h1"
+        )}
+        <a href="https://app.dissoku.net/api/bots/716496407212589087/invite/" class="rtbtn">Invite</a>
+    </div>
+</div>
+''')
+^^

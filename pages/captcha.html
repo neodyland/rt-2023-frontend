@@ -1,0 +1,16 @@
+^^ await self.layout(
+    title="Captcha",
+    content=f"""
+    <h1 class="title">Captcha Result</h1>
+    <div class="content">
+
+    </div>
+    """ if mode == "result" else """
+    <h1 class="title">Captcha Result</h1>
+    <div class="content">
+
+    </div>
+    """,
+    head="<script src="https://js.hcaptcha.com/1/api.js" async defer></script>"
+        if mode != "result" else ""
+) ^^
