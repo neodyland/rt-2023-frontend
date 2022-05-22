@@ -23,17 +23,25 @@
       import { API } from "/js/utils.js";
 
       replaceLanguage();
+      window.parsed_cookies = document.cookie.split(';');
+      let session = "...";
+      for (let cookie of parsed_cookies)
+        if (cookie[0] == "session") {
+          session = cookie[1];
+          break;
+        };
 
-      fetch(new Request(`${API}/account/fetch?${document.cookie}`))
-        .then(response => { return response.json(); })
-        .then(data => {
-          if (data.status == 200 && data.data) {
-            data = data.data;
-            document.getElementById("login").remove();
-            document.getElementById("userName").innerText = data.name;
-            document.getElementById("account").setAttribute("style", "display: inline !important;");
-          };
-        });
+      if (session != "...")
+        fetch(new Request(`${API}/account/fetch?${session}`))
+          .then(response => { return response.json(); })
+          .then(data => {
+            if (data.status == 200 && data.data) {
+              data = data.data;
+              document.getElementById("login").remove();
+              document.getElementById("userName").innerText = data.name;
+              document.getElementById("account").setAttribute("style", "display: inline !important;");
+            };
+          });
     </script>
   </head>
   <body>

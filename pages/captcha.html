@@ -1,16 +1,28 @@
-^^ await self.layout(
+^^
+from data import DATA
+
+
+if "site_key" in DATA["hcaptcha"]:
+    SITE_KEY = DATA["hcaptcha"]["site_key"]
+else:
+    SITE_KEY = self.app.ctx.hcaptcha.TEST_SITE_KEY
+
+
+await self.layout(
     title="Captcha",
     content=f"""
     <h1 class="title">Captcha Result</h1>
+    <div class="content">{content}</div>
+    """ if mode == "result" else f"""
+    <h1 class="title">Captcha</h1>
     <div class="content">
-
-    </div>
-    """ if mode == "result" else """
-    <h1 class="title">Captcha Result</h1>
-    <div class="content">
-
+        <form action="/captcha/result/{guild_id}" method="POST">
+            <div class="h-captcha" data-sitekey="{SITE_KEY}"></div>
+            <br />
+            <input type="submit" value="Submit | チェック" />
+        </form>
     </div>
     """,
-    head="<script src="https://js.hcaptcha.com/1/api.js" async defer></script>"
+    head='<script src="https://js.hcaptcha.com/1/api.js" async defer></script>'
         if mode != "result" else ""
 ) ^^
