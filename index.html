@@ -3,7 +3,7 @@ ol = lambda datas: \
     f'<ol>{"".join(f"<li>{t(ja=ja, en=en)}</li>" for ja, en in datas)}</ol>'
 SNSE = "(Sorry, this feature is only supported in Japan at this time. So coming soon...)"
 
-await self.layout(
+await layout(
     title="Home",
     content=f'''
 <div class="index-html">

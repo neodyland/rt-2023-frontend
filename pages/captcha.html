@@ -8,7 +8,7 @@ else:
     SITE_KEY = self.app.ctx.hcaptcha.TEST_SITE_KEY
 
 
-await self.layout(
+await layout(
     title="Captcha",
     content=f"""
     <h1 class="title">Captcha Result</h1>
