@@ -23,11 +23,11 @@
       import { API_ORIGIN } from "/js/utils.js";
 
       replaceLanguage();
-      window.parsed_cookies = document.cookie.split(';');
+      let parsed_cookies = document.cookie.split(';');
       let session = "...";
       for (let cookie of parsed_cookies)
-        if (cookie[0] == "session") {
-          session = cookie[1];
+        if (cookie.startsWith("session=")) {
+          session = cookie.replace("session=", "");
           break;
         };
 
@@ -56,7 +56,6 @@
           <div></div>
         </div>
         <div class="menu-list">
-          ^^ self.menuItem("/index.html", "ホーム", "Home") ^^
           ^^ self.menuItem("/news.html", "ニュース", "News") ^^
           ^^ self.menuItem("/help.html", "ヘルプ", en="Help") ^^
           ^^ self.menuItem("/plan.html", "プラン", en="Plan") ^^
