@@ -345,7 +345,14 @@ header .menu .menu-list .account .dropdown a:hover {
     background-color: #F6F6F6;
 }
 
-    .help-html .item {
+code {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0.1vw; padding: 0.1vw; border-radius: 3px;
+}
+
+.help-html a { font-size: 20px; }
+
+.help-html .item {
     display: block;
     margin: .5rem 0;
     padding: .5rem 1rem;

@@ -20,7 +20,7 @@
       // アカウントのログイン処理をする。
 
       import { replaceLanguage } from "/js/language.js";
-      import { API } from "/js/utils.js";
+      import { API_ORIGIN } from "/js/utils.js";
 
       replaceLanguage();
       window.parsed_cookies = document.cookie.split(';');
@@ -32,7 +32,7 @@
         };
 
       if (session != "...")
-        fetch(new Request(`${API}/account/fetch?${session}`))
+        fetch(new Request(`${API_ORIGIN}/account/fetch?${session}`))
           .then(response => { return response.json(); })
           .then(data => {
             if (data.status == 200 && data.data) {
@@ -129,6 +129,8 @@
           </div>
           <div class="item">
             <div class="m-title">Dashboard</div>
+            Comming soon...
+            <!--
             <div>
               <a href="/dashboard">Home</a>
             </div>
@@ -138,6 +140,7 @@
             <div>
               <a href="/account/logout">Logout</a>
             </div>
+            -->
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 //! Utils
 
 
-export const API = `//api.${location.host}`;
+export const API_ORIGIN = `//api.${location.host}`;
 
 
 export function escapeHtml(str) {
