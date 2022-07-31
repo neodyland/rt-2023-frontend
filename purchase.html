@@ -1,0 +1,19 @@
+^^ await layout(
+    title="Purchase", description="購入画面です。",
+    content=f"""<h1 class="title">{t(ja="購入", en="Purchase")}</h1>
+    <div class="content news-html">
+        {t(ja="購入方法", en="Purchase Method", tag="h1")}
+        <ol>
+            {t(ja='''<li><a href="https://app.dissoku.net/api/bots/716496407212589087/invite" target="_blank">ここ</a>をクリックしてRTをサーバーに招待します。</li>
+            <li><code>rt!purchase</code>(または、<code>/purchase</code>)を実行すると購入用のボタンが表示されます。</li>
+            <li>購入後、製品版のRTをそのサーバーで使えるようになります。</li>''',
+            en='''<li><a href="https://app.dissoku.net/api/bots/716496407212589087/invite" target="_blank">ここ</a>をクリックしてRTをサーバーに招待します。</li>
+            <li>Running <code>rt!purchase</code>(or <code>/purchase</code>), the button for purchase will appear.</li>
+            <li>After purchase, the full version of RT can be used on that server.</li>''')}
+        </ol>
+        {t(
+            ja="もしわからないことがあればサポートサーバーまでお問い合わせください。",
+            en="If you have any questions, please contact our support server."
+        )}<br><br><br><br><br><br>
+    </div>""",
+) ^^

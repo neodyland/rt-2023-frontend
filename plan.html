@@ -1,0 +1,149 @@
+^^
+X, O = "❌", "⭕"
+PLANS_JA = {
+    "サーバーツール": {
+        "同時に稼働可能な投票パネル": (1, 50),
+        "投票パネルで投票が可能な項目数の最大を設定する": (X, O),
+        "一括メッセージ削除機能で一度に消せるメッセージの上限": (50, 300),
+        "コンテキストメニュー(PCでは右クリック、スマホ等では長押し)で選択したメッセージの間にあるものを一括削除する": (X, O),
+        "大量メンバーを操作する一括機能での最大人数": (100, "30,000"),
+        "翻訳": (O, O), "チャンネルの自動翻訳": (O, O),
+        "フォローしたニュースチャンネルから流れてくるメッセージを自動で翻訳する": (X, O),
+        "埋め込みを送信する": (O, O),
+        "送信する埋め込みの送信者の名前とアイコンを変更する": (X, O),
+        "天気予報": (O, O)
+    },
+    "サーバー運営機能": {
+        "認証機能": (O, O), "ウェブ認証": (X, O),
+        "ロールキーパーのロールデータ補完期間": ("三ヶ月", "一年"),
+        "レベル機能": (O, O),
+        "レベル報酬 (指定したレベルに達した際にロールを付与する機能)": (X, O),
+        "ロールパネルで最大のロール登録数": (10, 25),
+        "最大のロールパネル作成数": (1, "無制限"),
+        "ロールパネルで付与できるロールの最低または最大を設定する": (X, O),
+        "ボイスチャンネル接続時に付与するロールの設定上限": (1, 30),
+        "スレッド自動アーカイブ防止機能の設定上限": (1, 15),
+        "ロール付与/削除時にメッセージを送信する機能の設定上限": (1, 10),
+        "チャンネルステータス機能の設定上限": (2, 10),
+        "チャンネルステータスでBot数とBotを含まない人数を表示する": (X, O),
+        "参加者に自動でロールを付与する機能である自動ロールの設定上限": (1, 10),
+        "自動ロール機能で何分か遅れてロールを付与するモード": (X, O),
+        "ウェルカムメッセージの設定上限": (1, 8),
+        "NGニックネームの設定上限": (2, 30),
+        "自動返信の設定上限": (3, 50),
+        "何かメッセージが送信されても自動で一番下にメッセージがくる機能である強制ピン留めの設定上限": (1, 30),
+        "強制ピン留めでのメッセージを下に持ってくる頻度の変更": (X, O),
+        "強制ピン留めの送信者の名前とアイコンを設定する": (X, O),
+        "ボタンで切り替えて本のように内容を見れるメッセージを作る機能": (X, O),
+        "サーバー参加者でアイコンを設定していない人に警告を送信する。": (X, O),
+        "何かしら送信しなければキックされてしまうチャンネルを設定する。": (X, O),
+        "ニックネームパネル": (O, O), "ニックネームパネルのニックネームに後付け機能": (X, O),
+        "フリーチャンネルパネル (またはチケットパネル)": (O, O),
+        "フリーチャンネルパネル機能で十二時間のうちに作れるチャンネル数上限の設定できる数の最大": (1, 5),
+        "ロール付与または削除時に別のロールで同じことまたは逆のことをする機能": (X, O),
+        "絵文字,スタンプ,urlをブロックする機能": (O, O),
+        "絵文字,スタンプ,urlをブロックする機能で設定できるもの": ("どれか一つ", "最大全部"),
+        "天気予報の情報をサーバーの特定のチャンネルに毎日特定の時間に送信する。": (X, O)
+    },
+    "娯楽系": {
+        "音楽再生のキューに入れれる音楽の上限": (100, "10,000"),
+        "一ヶ月における読み上げられる文字数の上限": ("7,000", "無制限"),
+        "一つのメッセージで読み上げられるメッセージの文字数上限": (50, 100),
+        "読み上げ時に読み上げ予定として記憶できる送信されたメッセージの数": (3, 15),
+        "読み上げで特定の音声を流せるネタ音声機能の使用回数制限": ("十五秒に五回", "一秒に一回"),
+        "読み上げで他の人と同時に喋る": (X, O),
+        "音楽再生と読み上げで音量を変更する": (X, O),
+        "音楽再生と読み上げを同時に使用する": (X, O),
+        "音楽再生と読み上げだけが使用できるRTのサブを使う": (X, O)
+    },
+    "その他": {
+        "バグ報告": (O, O), "新機能実装依頼": (X, O),
+        "使用方法等のサポート": (X, O), "その他問い合わせ": (X, O),
+        "RTの動作ログを見る": (X, O), "レート制限の存在": (O, X),
+        "全コマンドのグローバルクールダウン": ("十五秒に一回まで", "無制限"),
+    }
+}
+make_tds = lambda plans: "".join(f"""
+<h3>{{}}</h3>
+<table>
+    <tr>
+        <th class="plan-subject">{t(ja="項目", en="Subject")}</th>
+        <th>{t(ja="無料版", en="Free")}</th>
+        <th>{t(ja="製品版", en="Production")}</th>
+    </tr>
+    {{}}
+</table>""".format(title, "".join(
+    f'<tr><td class="plan-subject">{key}</td><td>{value[0]}</td><td>{value[1]}</td></tr>'
+    for key, value in items.items()
+)) for title, items in plans.items())
+
+
+await layout(
+    title="Plan", description="プランの詳細です。",
+    content=f'''
+    <h1 class="title">{t(ja="プラン", en="Plan")}</h1>
+    <div class="content plan-content">
+        <h2>{t(ja="全プラン", en="All plan")}</h2>
+        <div class="plan-container">
+            <div class="plan-column">
+                <div class="plan-title">{t(ja="無料", en="Free")}</div>
+                <div><hr></div>
+                <div class="detail">
+                    <ul>
+                        <li>{t(ja="制約あり", en="Limited")}</li>
+                        <li>{t(ja="レート制限あり", en="Rate limited")}</li>
+                        <li>{t(ja="バグ報告を除いてサポート無し", en="No support except for bug reports")}</li>
+                    </ul>
+                </div>
+                <div><hr></div>
+                <div class="plan-button" onclick="location.href='https://app.dissoku.net/api/bots/716496407212589087/invite';">
+                    {t(ja="導入する", en="Invite", tag="span")}
+                </div>
+            </div>
+            <div class="plan-column">
+                <div class="plan-title">{t(ja="月額1,000円", en="1,000 yen/month")}</div>
+                <div><hr></div>
+                <div class="detail">
+                    <ul>
+                        <li>{t(ja="完全な問い合わせ対応", en="Full support")}</li>
+                        <li>{t(ja="様々な追加機能", en="Various additional features")}</li>
+                        <li>{t(ja="読み上げ無制限", en="TTS is no limited")}</li>
+                    </ul>
+                </div>
+                <div><hr></div>
+                <div class="plan-button" onclick="location.href='purchase.html';">
+                    {t(ja="購入する", en="Get the monthly plan", tag="span")}
+                </div>
+            </div>
+            <div class="plan-column">
+                <div class="plan-title">{t(ja="年額10,000円", en="10,000 yen/year")}</div>
+                <div><hr></div>
+                <div class="detail">
+                    <ul>
+                        <li>{t(ja="月額プランよりお得", en="Save more than a monthly plan")}</li>
+                    </ul>
+                </div>
+                <div><hr></div>
+                <div class="plan-button" onclick="location.href='purchase.html';">
+                    {t(ja="購入する", en="Get the yearly plan", tag="span")}
+                </div>
+            </div>
+        </div>
+        {t(
+            ja='※導入した場合は<a href="terms.html">利用規約</a>に同意したことになります。',
+            en='* If you invite RT, you agree to the <a href="terms.html">Terms of Use</a>.'
+        )}
+        <h2>{t(ja="比較", en="PLANS COMPARISON")}</h2>
+        {t(ja=make_tds(PLANS_JA), en=make_tds({}))}
+        <div class="content" style="padding: 5rem 20%;">
+            {t(
+                ja="新しいBot体験を楽しみましょう！",
+                en="A new bot experience!", tag="h1"
+            )}
+            <div class="rtbtn" onclick="window.scrollTo(0, 0);">See plan list</div>
+        </div>
+    </div>
+    ''', head="""
+    <link rel="stylesheet" href="/css/plan.css">
+    """
+) ^^

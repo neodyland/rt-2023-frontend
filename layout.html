@@ -14,6 +14,12 @@
       try: return f"{title} | RT Dicsord Bot"
       except NameError: return "..."
     ^^</title>
+    ^^
+    try: return '<meta name="description" content="{}" />'.format(
+        f"他にはないような機能を提供している多機能Botの{description}"
+      )
+    except NameError: return ""
+    ^^
     <meta name="theme-color" content="#6E3DD9">
     <link rel="icon" href="/img/favicon.ico">
     <script type="module">
@@ -109,12 +115,6 @@
             <div>
               <a href="/status.html">Status</a>
             </div>
-          </div>
-          <div class="item">
-            <div class="m-title">Help</div><!--
-            <div>
-              <a href="/help.html?g=other">Other</a>
-            </div>-->
           </div>
           <div class="item">
             <div class="m-title">Links</div>
