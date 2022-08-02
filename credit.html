@@ -1,0 +1,175 @@
+^^
+for name, path in (
+    ("BACKEND_BOT_LIBRARIES", "licenses/backend_bot.txt"),
+    ("BACKEND_WEB_LIBRARIES", "licenses/backend_web.txt"),
+    ("FRONTEND_LIBRARIES", "licenses/frontend.txt")
+):
+    if not hasattr(app.ctx, name):
+        with open(f"rt-frontend/{path}", "r") as f:
+            content, data = f.read(), {}
+        setattr(app.ctx, name, (path, []))
+        for item in content.split("#"):
+            if not item:
+                continue
+            getattr(app.ctx, name)[1].append(item[1:item.find("\n")])
+make_lis = lambda items: ''.join('<li>{}</li>'.format(name) for name in items)
+            
+await layout(
+    title="Credit", description="クレジットページです。",
+    content=f"""<h1 class="title">{t(ja="クレジット", en="Credit")}</h1>
+    <div class="content credit-html">
+        <h1>Icon</h1>
+        <div class="icon">
+            <img src="img/icon.png">
+            <div>
+                Author: Takkun<br>
+                License: <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode.ja" target="_blank">CC BY-ND 4.0</a>
+            </div>
+        </div>
+        <h1>Acknowledgements</h1>
+        <h2>Libraries</h2>
+        <h3>Backend - Web and Database</h3>
+        <ul>
+            {make_lis(app.ctx.BACKEND_WEB_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.BACKEND_WEB_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h3>Backend - Bot</h3>
+        <ul>
+            {make_lis(app.ctx.BACKEND_BOT_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.BACKEND_BOT_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h3>Frontend</h3>
+        <ul>
+            {make_lis(app.ctx.FRONTEND_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.FRONTEND_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h2>TTS voices</h2>
+        <h3>OpenJTalk</h3>
+        <a href="licenses/openjtalk.txt">See license</a>
+        <h4>メイ</h4>
+        Copyright (c) 2009-2018 Nagoya Insitute of Technology Department of Computer Science
+        LICENSE: https://mmdagent.sourceforge.io/index.php?readme_MMDAgent
+        <h4>男の人 (nitech_jp_atr503_m001)</h4>
+        Copyright (c) 2003-2012 Nagoya Insitute of Technology Department of Computer Science
+        LICENSE: https://ja.osdn.net/projects/sfnet_open-jtalk/downloads/HTS%20voice/hts_voice_nitech_jp_atr503_m001-1.05/hts_voice_nitech_jp_atr503_m001_readme-1.05.txt
+        <h3>VOICEVOX</h3>
+        (c) 2021 Hiroshiba Kazuyuki
+        <h4>四国めたん (あまあま)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (あまあま)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (ノーマル)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (ノーマル)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (セクシー)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (セクシー)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (ツンツン)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (ツンツン)</h4>VOICEVOX: ずんだもん
+        <h4>春日部つむぎ</h4>VOICEVOX: 春日部つむぎ
+        <h4>波音リツ</h4>VOICEVOX: 波音リツ
+        <h4>雨晴はう</h4>VOICEVOX: 雨晴はう
+        <h4>玄野武宏</h4>VOICEVOX: 玄野武宏
+        <h4>白上虎太郎</h4>VOICEVOX: 白上虎太郎
+        <h4>冥鳴ひまり</h4>VOICEVOX: 冥鳴ひまり
+        <h4>九州そら (あまあま)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ノーマル)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (セクシー)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ツンツン)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ささやき)</h4>VOICEVOX: 九州そら
+        <h4>剣崎雌雄</h4>VOICEVOX: 剣崎雌雄
+        <h3>gTTS</h3>
+        Repository: https://github.com/pndurette/gTTS<br>
+        Licesnse: https://github.com/pndurette/gTTS/blob/master/LICENSE
+        <h1>RT Developers</h1>
+        RTの開発をしている人達です。
+        <h2>tasuren</h2>
+        <div class="icon">
+            <img src="img/credit/tasuren.jpg">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-2">フロントエンド開発</span>
+                    <span class="group c-3">サーバー運用</span>
+                </p>
+                僕がRTの開発をし始めた張本人で、現在は高校生です。<br>
+                主にバックエンドの開発をしています。<br>
+                <a href="https://tasuren.f5.si" target="_blank">tasurenのウェブサイト</a>
+            </div>
+        </div>
+        <h2>Takkun</h2>
+        <div class="icon">
+            <img src="img/credit/takkun.png">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-2">フロントエンド開発</span>
+                    <span class="group c-5">デザイナー</span>
+                </p>
+                このWebサイトをほとんど作りました。<br>
+                RTのプログラムも作ってます！<br>
+                主にフロントエンドを開発しています。<br>
+                ポートフォリオ: <a href="https://takkun053.tk/" target="_blank">https://takkun053.tk/</a> (準備中)
+            </div>
+        </div>
+        <h2>Snavy</h2>
+        <div class="icon">
+            <img src="img/credit/snavy.png">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-4">サポーター</span>
+                </p>
+                Hey 👋 I'm a backend developer looking to learn new stuff
+            </div>
+        </div>
+        <h2>mc_fdc</h2>
+        <div class="icon">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-3">サーバー運用</span>
+                </p>
+            </div>
+            (未入力)
+        </div>
+        <h2>devon</h2>
+        <div class="icon">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-4">サポーター</span>
+                </p>
+            </div>
+            (未入力)
+        </div>
+        <h2>YUTAM＠NY</h2>
+        <div class="icon">
+            <img src="img/credit/yutam.png">
+            <div>
+                <p>
+                    <span class="group c-5">デザイナー</span>
+                </p>
+                特になし
+            </div>
+        </div>
+        <h2>さくら新撰組</h2>
+        <div class="icon">
+            <img src="img/credit/sakura.png">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-2">フロントエンド開発</span>
+                </p>
+                ボランティアでRTの開発に協力してくれている人達です。
+            </div>
+        </div>
+        <h2>Other contributors</h2>
+        <div class="icon">
+            <img src="img/credit/contributors.png">
+            <div>
+                <p>
+                    <span class="group c-1">バックエンド開発</span>
+                    <span class="group c-2">フロントエンド開発</span>
+                </p>
+                RTのGitHubのリポジトリに貢献した人達です。
+            </div>
+        </div>
+    </div>"""
+) ^^
