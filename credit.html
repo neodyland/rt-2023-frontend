@@ -18,65 +18,6 @@ await layout(
     title="Credit", description="クレジットページです。",
     content=f"""<h1 class="title">{t(ja="クレジット", en="Credit")}</h1>
     <div class="content credit-html">
-        <h1>Icon</h1>
-        <div class="icon">
-            <img src="img/icon.png">
-            <div>
-                Author: Takkun<br>
-                License: <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode.ja" target="_blank">CC BY-ND 4.0</a>
-            </div>
-        </div>
-        <h1>Acknowledgements</h1>
-        <h2>Libraries</h2>
-        <h3>Backend - Web and Database</h3>
-        <ul>
-            {make_lis(app.ctx.BACKEND_WEB_LIBRARIES[1])}
-        </ul>
-        <a href="{app.ctx.BACKEND_WEB_LIBRARIES[0]}" target="_blank">See licenses</a>
-        <h3>Backend - Bot</h3>
-        <ul>
-            {make_lis(app.ctx.BACKEND_BOT_LIBRARIES[1])}
-        </ul>
-        <a href="{app.ctx.BACKEND_BOT_LIBRARIES[0]}" target="_blank">See licenses</a>
-        <h3>Frontend</h3>
-        <ul>
-            {make_lis(app.ctx.FRONTEND_LIBRARIES[1])}
-        </ul>
-        <a href="{app.ctx.FRONTEND_LIBRARIES[0]}" target="_blank">See licenses</a>
-        <h2>TTS voices</h2>
-        <h3>OpenJTalk</h3>
-        <a href="licenses/openjtalk.txt">See license</a>
-        <h4>メイ</h4>
-        Copyright (c) 2009-2018 Nagoya Insitute of Technology Department of Computer Science
-        LICENSE: https://mmdagent.sourceforge.io/index.php?readme_MMDAgent
-        <h4>男の人 (nitech_jp_atr503_m001)</h4>
-        Copyright (c) 2003-2012 Nagoya Insitute of Technology Department of Computer Science
-        LICENSE: https://ja.osdn.net/projects/sfnet_open-jtalk/downloads/HTS%20voice/hts_voice_nitech_jp_atr503_m001-1.05/hts_voice_nitech_jp_atr503_m001_readme-1.05.txt
-        <h3>VOICEVOX</h3>
-        (c) 2021 Hiroshiba Kazuyuki
-        <h4>四国めたん (あまあま)</h4>VOICEVOX: 四国めたん
-        <h4>ずんだもん (あまあま)</h4>VOICEVOX: ずんだもん
-        <h4>四国めたん (ノーマル)</h4>VOICEVOX: 四国めたん
-        <h4>ずんだもん (ノーマル)</h4>VOICEVOX: ずんだもん
-        <h4>四国めたん (セクシー)</h4>VOICEVOX: 四国めたん
-        <h4>ずんだもん (セクシー)</h4>VOICEVOX: ずんだもん
-        <h4>四国めたん (ツンツン)</h4>VOICEVOX: 四国めたん
-        <h4>ずんだもん (ツンツン)</h4>VOICEVOX: ずんだもん
-        <h4>春日部つむぎ</h4>VOICEVOX: 春日部つむぎ
-        <h4>波音リツ</h4>VOICEVOX: 波音リツ
-        <h4>雨晴はう</h4>VOICEVOX: 雨晴はう
-        <h4>玄野武宏</h4>VOICEVOX: 玄野武宏
-        <h4>白上虎太郎</h4>VOICEVOX: 白上虎太郎
-        <h4>冥鳴ひまり</h4>VOICEVOX: 冥鳴ひまり
-        <h4>九州そら (あまあま)</h4>VOICEVOX: 九州そら
-        <h4>九州そら (ノーマル)</h4>VOICEVOX: 九州そら
-        <h4>九州そら (セクシー)</h4>VOICEVOX: 九州そら
-        <h4>九州そら (ツンツン)</h4>VOICEVOX: 九州そら
-        <h4>九州そら (ささやき)</h4>VOICEVOX: 九州そら
-        <h4>剣崎雌雄</h4>VOICEVOX: 剣崎雌雄
-        <h3>gTTS</h3>
-        Repository: https://github.com/pndurette/gTTS<br>
-        Licesnse: https://github.com/pndurette/gTTS/blob/master/LICENSE
         <h1>RT Developers</h1>
         RTの開発をしている人達です。
         <h2>tasuren</h2>
@@ -172,5 +113,65 @@ await layout(
                 RTのGitHubのリポジトリに貢献した人達です。
             </div>
         </div>
+        <h1>Icon</h1>
+        <div class="icon">
+            <img src="img/icon.png">
+            <div>
+                Author: Takkun<br>
+                License: <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode.ja" target="_blank">CC BY-ND 4.0</a>
+            </div>
+        </div>
+        <h1>{t(ja="謝辞", en="Acknowledgements")}</h1>
+        {t(ja="RTで使用されているもの達です。どうもありがとう！", en="These are the ones used in RT. Thanks a lot!")}
+        <h2>Libraries</h2>
+        <h3>Backend - Web and Database</h3>
+        <ul>
+            {make_lis(app.ctx.BACKEND_WEB_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.BACKEND_WEB_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h3>Backend - Bot</h3>
+        <ul>
+            {make_lis(app.ctx.BACKEND_BOT_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.BACKEND_BOT_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h3>Frontend</h3>
+        <ul>
+            {make_lis(app.ctx.FRONTEND_LIBRARIES[1])}
+        </ul>
+        <a href="{app.ctx.FRONTEND_LIBRARIES[0]}" target="_blank">See licenses</a>
+        <h2>TTS voices</h2>
+        <h3>OpenJTalk</h3>
+        <a href="licenses/openjtalk.txt">See license</a>
+        <h4>メイ</h4>
+        Copyright (c) 2009-2018 Nagoya Insitute of Technology Department of Computer Science
+        LICENSE: https://mmdagent.sourceforge.io/index.php?readme_MMDAgent
+        <h4>男の人 (nitech_jp_atr503_m001)</h4>
+        Copyright (c) 2003-2012 Nagoya Insitute of Technology Department of Computer Science
+        LICENSE: https://ja.osdn.net/projects/sfnet_open-jtalk/downloads/HTS%20voice/hts_voice_nitech_jp_atr503_m001-1.05/hts_voice_nitech_jp_atr503_m001_readme-1.05.txt
+        <h3>VOICEVOX</h3>
+        (c) 2021 Hiroshiba Kazuyuki
+        <h4>四国めたん (あまあま)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (あまあま)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (ノーマル)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (ノーマル)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (セクシー)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (セクシー)</h4>VOICEVOX: ずんだもん
+        <h4>四国めたん (ツンツン)</h4>VOICEVOX: 四国めたん
+        <h4>ずんだもん (ツンツン)</h4>VOICEVOX: ずんだもん
+        <h4>春日部つむぎ</h4>VOICEVOX: 春日部つむぎ
+        <h4>波音リツ</h4>VOICEVOX: 波音リツ
+        <h4>雨晴はう</h4>VOICEVOX: 雨晴はう
+        <h4>玄野武宏</h4>VOICEVOX: 玄野武宏
+        <h4>白上虎太郎</h4>VOICEVOX: 白上虎太郎
+        <h4>冥鳴ひまり</h4>VOICEVOX: 冥鳴ひまり
+        <h4>九州そら (あまあま)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ノーマル)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (セクシー)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ツンツン)</h4>VOICEVOX: 九州そら
+        <h4>九州そら (ささやき)</h4>VOICEVOX: 九州そら
+        <h4>剣崎雌雄</h4>VOICEVOX: 剣崎雌雄
+        <h3>gTTS</h3>
+        Repository: https://github.com/pndurette/gTTS<br>
+        Licesnse: https://github.com/pndurette/gTTS/blob/master/LICENSE
     </div>"""
 ) ^^
