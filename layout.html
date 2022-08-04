@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/css/main.css">
     ^^
     def menuItem(url, ja, en, blank=False):
-      return f'<a href="{url}" class="m language ja" hidden>{ja}</a>' \
-        f'<a href="{url}" class="m language en" hidden>{en}</a>'
+      return f'<a href="{url}" class="m language ja" target="_blank" hidden>{ja}</a>' \
+        f'<a href="{url}" class="m language en" target="_blank" hidden>{en}</a>'
     self.menuItem = menuItem
     head
     ^^
