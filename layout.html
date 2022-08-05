@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
     ^^
+    BLANK = 'target="_blank"'
     def menuItem(url, ja, en, blank=False):
-      return f'<a href="{url}" class="m language ja" target="_blank" hidden>{ja}</a>' \
-        f'<a href="{url}" class="m language en" target="_blank" hidden>{en}</a>'
+      return (f'<a href="{url}" class="m language ja" %shidden>{ja}</a>'
+        f'<a href="{url}" class="m language en" %shidden>{en}</a>') \
+          % ((BLANK, BLANK) if blank else ("", ""))
     self.menuItem = menuItem
     head
     ^^
