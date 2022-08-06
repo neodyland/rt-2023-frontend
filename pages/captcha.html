@@ -2,8 +2,8 @@
 from data import DATA
 
 
-if "site_key" in DATA["hcaptcha"]:
-    SITE_KEY = DATA["hcaptcha"]["site_key"]
+if "hcaptcha_site_key" in DATA:
+    SITE_KEY = DATA["hcaptcha_site_key"]
 else:
     SITE_KEY = self.app.ctx.hcaptcha.TEST_SITE_KEY
 
