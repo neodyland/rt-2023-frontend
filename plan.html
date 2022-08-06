@@ -54,7 +54,7 @@ PLANS_JA = {
         "読み上げで他の人と同時に喋る": (X, O),
         "音楽再生と読み上げで音量を変更する": (X, O),
         "音楽再生と読み上げを同時に使用する": (X, O),
-        "音楽再生と読み上げだけが使用できるRTのサブを使う": (X, O)
+        # "音楽再生と読み上げだけが使用できるRTのサブを使う": (X, O)
     },
     "その他": {
         "バグ報告": (O, O), "新機能実装依頼": (X, O),
@@ -62,6 +62,67 @@ PLANS_JA = {
         "RTの動作ログを見る": (X, O),
         '<a href="https://docs.rt.rext.dev/docs/reference/rate_limit" target="_blank">レート制限</a>の存在': (O, X),
         "全コマンドのグローバルクールダウン": ("十五秒に一回まで", "無制限"),
+    }
+}
+PLANS_EN = {
+    "Server Tool": {
+        "Polling panels that can operate simultaneously": (1, 50),
+        "The maximum number of items that can be voted on in the voting panel": (X, O),
+        "Maximum number of messages that can be deleted at one time": (50, 300),
+        "Delete all the messages between the ones selected in the context menu (right-click on PC, long-press on smartphone, etc.)": (X, O),
+        "Maximum number of people in a batch function to operate a large number of members": (100, "30,000"),
+        "Translate": (O, O), "Auto translate channel": (O, O),
+        "Automatic translation of messages coming from news channels you follow": (X, O),
+        "Send embed": (O, O),
+        "Change the sender's name and icon for outgoing embeds": (X, O)
+    },
+    "Server Management": {
+        "Image Captcha": (O, O), "Web Captcha": (X, O),
+        "Role data completion period for role keepers": ("three months", "one year"),
+        "level function": (O, O),
+        "Level rewards (functionality that grants roles upon reaching a specified level)": (X, O),
+        "Maximum number of roles registered in the Roles panel": (10, 25),
+        "Maximum number of role panels created": (1, "Un limit"),
+        "The minimum or maximum number of roles that can be granted in the Roles panel": (X, O),
+        "Setting limit of roles to be granted for voice channel connections": (1, 30),
+        "Limit for thread auto-archive prevention function": (1, 15),
+        "Configuration limits for the ability to send messages when granting/deleting roles": (1, 10),
+        "Limit for channel status function": (2, 10),
+        "Show the number of Bots and the number of people without Bots in the channel status": (X, O),
+        "Limit for automatic roles, a feature that automatically assigns roles to participants": (1, 10),
+        "Mode in which the role is granted after a delay of some minutes": (X, O),
+        "Limit for welcome message": (1, 8),
+        "NG nickname setting limit": (2, 30),
+        "Limit for auto-reply": (3, 50),
+        "Limit for forced pinning, a feature that automatically brings the message always to the bottom.": (1, 30),
+        "Change the frequency of bringing messages to the bottom in forced pinning": (X, O),
+        "Set sender name and icon for forced pinning": (X, O),
+        "Ability to create messages that can be switched with a button to view the contents like a book.": (X, O),
+        "Send a warning to server participants who have not set an icon.": (X, O),
+        "Set up a channel that will kick in if you don't transmit something.": (X, O),
+        "Nick Name Panel": (O, O), "Postfix function for nicknames in nicknames panel": (X, O),
+        "Free Channel (or ticket panel)": (O, O),
+        "Maximum number of channels that can be created in a twelve-hour period with the free channel panel function.": (1, 5),
+        "Ability to do the same or vice versa with another role upon role grant or deletion": (X, O),
+        "Ability to block emojis, stamps, urls": (O, O),
+        "What can be set in the function to block emojis, stamps, urls": ("one of these", "all")
+    },
+    "Entertainment": {
+        "The maximum amount of music that can be queued for music player": (100, "10,000"),
+        "Maximum number of words to be read out in a month": ("7,000", "無制限"),
+        "Maximum number of characters in a message that can be read out in a single message on TTS": (50, 100),
+        "Number of messages sent that can be stored as scheduled to be read at the time of reading": (3, 15),
+        "Limit on the number of times you can use the meme voice function.": ("5 per 15 seconds", "1 per 1 second"),
+        "Speak at the same time as others on TTS.": (X, O),
+        "Change volume with music player and TTS": (X, O),
+        "Use music player and TTS at the same time": (X, O),
+    },
+    "Other": {
+        "bug report": (O, O), "Request for implementation of new functions": (X, O),
+        "Support for usage, etc.": (X, O), "Other inquiries": (X, O),
+        "View RT's operating logs.": (X, O),
+        'The existence of <a href="https://docs.rt.rext.dev/docs/reference/rate_limit" target="_blank">Rate limit</a>': (O, X),
+        "Global cooldown for all commands": ("1 per 15 seconds", "Un limit"),
     }
 }
 make_tds = lambda plans: "".join(f"""
