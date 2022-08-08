@@ -2,10 +2,10 @@
 from data import DATA
 
 
-if "hcaptcha_site_key" in DATA:
+if DATA["hcaptcha_site_key"]:
     SITE_KEY = DATA["hcaptcha_site_key"]
 else:
-    SITE_KEY = self.app.ctx.hcaptcha.TEST_SITE_KEY
+    SITE_KEY = app.ctx.hcaptcha.TEST_SITE_KEY
 
 
 await layout(
