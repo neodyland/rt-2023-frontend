@@ -126,7 +126,7 @@ PLANS_EN = {
     }
 }
 make_tds = lambda plans: "".join(f"""
-<h3>{{}}</h3>
+<h2>{{}}</h2>
 <table>
     <tr>
         <th class="plan-subject">{t(ja="項目", en="Subject")}</th>
@@ -145,7 +145,7 @@ await layout(
     content=f'''
     <h1 class="title">{t(ja="プラン", en="Plan")}</h1>
     <div class="content plan-content">
-        <h2>{t(ja="全プラン", en="All plan")}</h2>
+        <h1>{t(ja="全プラン", en="All plan")}</h1>
         <div class="plan-container">
             <div class="plan-column">
                 <div class="plan-title">{t(ja="無料", en="Free")}</div>
@@ -195,7 +195,7 @@ await layout(
             ja='※導入した場合は<a href="terms.html">利用規約</a>に同意したことになります。',
             en='* If you invite RT, you agree to the <a href="terms.html">Terms of Use</a>.'
         )}
-        <h2>{t(ja="比較", en="PLANS COMPARISON")}</h2>
+        <h1>{t(ja="比較", en="PLANS COMPARISON")}</h1>
         {t(ja=make_tds(PLANS_JA), en=make_tds(PLANS_EN))}
         <div class="content" style="padding: 5rem 20%;">
             {t(
