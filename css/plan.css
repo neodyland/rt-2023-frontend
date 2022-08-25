@@ -42,6 +42,8 @@ hr.plan-column {
   padding: 1vw;
 }
 
+.plan-center { text-align: center; }
+
 .plan-button {
   text-align: center; margin: 3vh 1vw;
   background-color: rgba(121, 121, 121, 0.85);
