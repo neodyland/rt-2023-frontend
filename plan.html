@@ -5,7 +5,7 @@ PLANS_JA = {
         "同時に稼働可能な投票パネル": (1, 50),
         "投票パネルで投票が可能な項目数の最大を設定する": (X, O),
         "一括メッセージ削除機能で一度に消せるメッセージの上限": (50, 300),
-        "コンテキストメニュー(PCでは右クリック、スマホ等では長押し)で選択したメッセージの間にあるものを一括削除する": (X, O),
+        "PCでは右クリック、スマホ等では長押しで選択したメッセージの間にあるメッセージを一括削除する": (X, O),
         "大量メンバーを操作する一括機能での最大人数": (100, "30,000"),
         "翻訳": (O, O), "チャンネルの自動翻訳": (O, O),
         "フォローしたニュースチャンネルから流れてくるメッセージを自動で翻訳する": (X, O),
@@ -14,7 +14,7 @@ PLANS_JA = {
         "天気予報": (O, O)
     },
     "サーバー運営機能": {
-        "画像認証": (O, O), "ウェブ認証": (X, O),
+        "画像認証": (O, O), "hCaptchaによるウェブ認証": (X, O),
         "ロールキーパーのロールデータ補完期間": ("三ヶ月", "一年"),
         "レベル機能": (O, O),
         "レベル報酬 (指定したレベルに達した際にロールを付与する機能)": (X, O),
@@ -147,6 +147,9 @@ await layout(
     <h1 class="title">{t(ja="プラン", en="Plan")}</h1>
     <div class="content plan-content">
         <h1>{t(ja="全プラン", en="All plan")}</h1>
+        ここでは、RTのプランについてを解説します。<br>
+        製品版にするばより快適にDiscordライフを送れます！<br>
+        具体的にどんなふうに快適になるかは以下をチェック！！
         <div class="plan-container">
             <div class="plan-column">
                 <div class="plan-title">{t(ja="無料", en="Free")}</div>
@@ -158,6 +161,7 @@ await layout(
                         <li>{t(ja="バグ報告を除いてサポート無し", en="No support except for bug reports")}</li>
                     </ul>
                 </div>
+                そこまで規模が大きくないサーバー向け。
                 <div><hr></div>
                 <div class="plan-button" onclick="location.href='https://app.dissoku.net/api/bots/716496407212589087/invite';">
                     {t(ja="導入する", en="Invite", tag="span")}
@@ -173,6 +177,7 @@ await layout(
                         <li>{t(ja="読み上げ無制限", en="TTS is no limited")}</li>
                     </ul>
                 </div>
+                規模が大きい活発なサーバー向け。
                 <div><hr></div>
                 <div class="plan-button" onclick="location.href='purchase.html';">
                     {t(ja="購入する", en="Get the monthly plan", tag="span")}
@@ -186,6 +191,7 @@ await layout(
                         <li>{t(ja="月額プランよりお得", en="Save more than a monthly plan")}</li>
                     </ul>
                 </div>
+                規模が大きいしたくさんRTを使うプロ向け。
                 <div><hr></div>
                 <div class="plan-button" onclick="location.href='purchase.html';">
                     {t(ja="購入する", en="Get the yearly plan", tag="span")}
