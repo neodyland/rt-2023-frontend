@@ -11,19 +11,20 @@ await layout(
         <div>
             <h1>RT Discord Bot</h1>
             <p>{t(
-              ja="このBotだけで管理が済むとにかく多機能な次世代Bot",
+              ja="便利で多機能でモダンな最新の国産Bot",
               en="Convenient, feature-rich, modern Bot"
             )}</p>
         </div>
     </div>
-    <div class="content">
+    <div class="content news-html">
         <h1>About</h1>
         {t(
             ja="""
-            RTはDiscordのとあるBotでとにかく多機能なこのBotだけでサーバー管理が済んでしまうというBotです。<br>
+            RTとは、様々なBotにあるような機能をほぼ全て詰め込んだBotです。<br>
+            また、他のBotにはないような便利な機能も実装しています。
             """, en="""
-            RT is a Discord Bot that can do everything most Bots can.<br>
-            You will only need this Bot to manage the server.
+            RT is a bot that packs almost all the features that you would find in various bots.<br>
+            It also implements useful functions that other bots do not have.
             """
         )}
     </div>
@@ -35,21 +36,14 @@ await layout(
             </div>
             <div class="introduce">
                 {t(
-                  ja="豊富なサーバー管理に使えるツールなどの機能",
-                  en="Tools and server management tools",
+                  ja="サーバー運用に便利な機能",
+                  en="Tools for sserver management",
                   tag="h2"
                 )}
-                {t(ja="以下のようなサーバーツールがあります。", en="The tools are:")}
-                {ol((
-                  ("役職, 投票, 募集, チケット パネル", "Role, vote, recruitment, ticket panel"),
-                  ("カスタム可能なチャンネルステータス", "Customizable channel status"),
-                  ("チャンネルのロック/アンロック", "Lock/Unlock channel"),
-                  ("スレッドマネージャー (スレッド自動アーカイブ防止など)", "Thread manager (e.g. archive stopper)"),
-                  ("自己紹介テンプレートに使えるいつも下にくる強制ピン留め", "A forced pinning feature that creates a message that always comes to the bottom, is useful for self-introduction templates."),
-                  ("フィールドも設定が可能な埋め込み作成コマンド", "Create embed with configurable fields as well."),
-                  ("自動返信", "Auto Reply"), ("ボイスチャンネルに入ったら付与されるロール", "Roles granted when users enter a voice channel."),
-                  ("その他諸々", "various other things")
-                ))}
+                {t(
+                    ja="役職パネル、投票パネル、ウェルカムメッセージ、レベル、などのサーバー運用に使える機能がたくさんあります。",
+                    en="There are many features that can be used for server operations, such as role panels, voting panels, welcome messages, levels, etc."
+                )}
             </div>
         </div>
         <br>
@@ -57,21 +51,9 @@ await layout(
             <div class="introduce">
                 {t(ja="便利な機能", en="Convenient", tag="h2")}
                 {t(
-                  ja="以下のような便利なサーバーツールがあります。",
-                  en="Some useful server tools are:"
+                  ja="翻訳チャンネルや一括メッセージ削除などの利用者やモデレーターに便利な機能を提供しています。",
+                  en="It provides convenient features for users and moderators such as translation channels and bulk message deletion."
                 )}
-                {ol((
-                    ("レベル機能", "Level"),
-                    ("引用のように表示するメッセージリンク展開", "Message link expansion to be displayed as a quote"),
-                    ("翻訳チャンネル", "Auto translation channel"),
-                    ("複数メッセージの一括削除", "Batch deletion of multiple messages"),
-                    ("URL短縮", "URL Shortener"), ("bump/up 通知", "bump/up notification"),
-                    ("NSFW誤爆対策の自動スポイラー", "Automatic spoiler for NSFW misfire prevention"),
-                    ("自動リアクション付与", "Auto reaction"),
-                    ("簡単にGoogle検索、「とは」を最後に入れると検索ボタンが表示される。", "Quick google search"),
-                    ("ユーザーIDから情報とアイコンURLの表示", "Displays icon and information from user id."),
-                    ("その他諸々", "various other things")
-                ))}
             </div>
             <div class="introduce">
                 <img src="/img/introduce/kirakira.png">
@@ -84,14 +66,13 @@ await layout(
             </div>
             <div class="introduce">
                 {t(
-                    ja="""<h2>荒らし対策に使える機能</h2>
-                    最近ツールを使い自動でアカウントにスパムさせて荒らすというのが増えています。<br>
-                    そういう荒らし用捨てアカウントは画像,Web,合言葉認証で対策ができます。<br>
-                    またURLや絵文字制限などもできます。""",
-                    en="""<h2>Features that can be used to prevent vandalism</h2>
-                    More and more people are using tools to spam their accounts automatically.<br>
-                    You can use images, the web, and password authentication to solve the problem.<br>
-                    URL and pictogram restrictions are also available."""
+                    ja="""<h2>サーバーを安全にする機能</h2>
+                    スパムBot対策として認証機能を提供しています。<br>
+                    また、絵文字やスタンプ、URLをブロックする機能もあります。
+                    """,
+                    en="""<h2>Features for safety</h2>
+                    Authentication function is provided as an anti-spam bot measure.<br>
+                    There is also the ability to block emojis, stamps, urls."""
                 )}
             </div>
         </div>
@@ -100,12 +81,11 @@ await layout(
             <div class="introduce">
                 {t(
                     ja="""<h2>音楽プレイヤー</h2>
-                    現時点でYouTube,ニコニコ動画,SoundCloudが再生できる音楽プレイヤーです。<br>
-                    また、プレイリストを作ることができます。<br>
-                    なので、お手軽にお気に入り曲を全て再生できます。""",
+                    現時点でYouTube、ニコニコ動画、SoundCloudが再生できる音楽プレイヤーを搭載しています。<br>
+                    また、プレイリストを作ることができ、お手軽にお気に入り曲を全て再生できます。""",
                     en="""<h2>Music Player</h2>
-                    You can also create playlists.<br>
-                    So you can easily play all your favorite songs."""
+                    At this time, it has a music player that can play YouTube, Nico Nico Douga, and SoundCloud.<br>
+                    You can also create playlists to easily play all your favorite songs."""
                 )}
             </div>
             <div class="introduce">
@@ -120,10 +100,10 @@ await layout(
             <div class="introduce">
                 {t(
                     ja="""<h2>読み上げ</h2>
-                    声の種類を変更可能な読み上げ機能です。<br>
-                    VOICEVOXのずんだもんさん等が使えます。<br>
-                    製品版では辞書機能もあります。<br>
-                    しかもお気に入りの<s>淫夢</s>素材を登録して読み上げ中に使いみんなを笑わすこともできます。(笑)""",
+                    VOICEVOX等の声を使用することができる読み上げ機能をRTは搭載しています<br>
+                    読み上げ機能を使うことで、ボイスチャンネルでミュートでも喋ることができます。<br>
+                    製品版では辞書機能が使えて、人の名前を正しく読ませることができるよ。<br>
+                    また、お気に入りの<s>淫夢</s>音声素材を登録して読み上げ中にみんなを笑わすこともできます。(笑)""",
                     en="""<h2>TTS</h2>
                     Reads out messages sent to the text channel in the voice channel.<br>
                     You can also play a meme sound source while reading out loud."""
@@ -133,17 +113,9 @@ await layout(
         <div class="introduce-wrapper-black">
             <div class="introduce">
                 {t(
-                    ja="<h2>その他娯楽など</h2>以下のような娯楽などの機能もあります。",
-                    en="<h2>Fun</h2>The following entertainment and other functions are available."
+                    ja="<h2>その他</h2>他にもマインスイーパーや天気機能などのようなちょっとした機能もあります。",
+                    en="<h2>Others</h2>There are also other little features like a minesweeper and a weather function."
                 )}
-                {ol((
-                    ("指定した地域の天気予報を毎日指定した時間にDMに送らせる機能",
-                     f"Weather forecast notification {SNSE}"),
-                    ("マインスイーパーをする。", "Play minesweeper"),
-                    ("Minecraft(Java版)のユーザーのスキンを表示", "Displays skin of Minecraft (java) user."),
-                    ('<a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a>の最新のニュース表示',
-                     f'Show <a href="http://jin115.com/">オレ的ゲーム速報＠JIN</a>')
-                ))}
             </div>
             <div class="introduce">
                 <img src="/img/introduce/gamepad.png">
