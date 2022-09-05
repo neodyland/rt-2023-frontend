@@ -292,7 +292,7 @@ header .menu .menu-list .account .dropdown a:hover {
     background-image: none;
 }
     .index-html .top div {
-    background-image: url("../img/icon.png");
+    background-image: url("../img/icon.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
