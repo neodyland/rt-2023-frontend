@@ -53,7 +53,7 @@ PLANS_JA = {
         "読み上げで特定の音声を流せるネタ音声機能の使用回数制限": ("十五秒に五回", "一秒に一回"),
         "音楽再生と読み上げで音量を変更する": (X, O),
         "音楽再生と読み上げを同時に使用する": (X, O),
-        "音楽再生と読み上げだけが使用できるRTのサブを使う": (X, O)
+        "音楽再生と読み上げだけが使用できるRTのサブを使う (現在二台稼働中)": (X, O)
     },
     "その他": {
         "バグ報告": (O, O), "新機能実装依頼": (X, O),
@@ -74,7 +74,7 @@ PLANS_EN = {
         "Automatic translation of messages coming from news channels you follow": (X, O),
         "Send embed": (O, O),
         "Change the sender's name and icon for outgoing embeds": (X, O),
-        "Use RT subs that can only use music playback and read out loud.": (X, O)
+        "Use RT subs that can only use music playback and read out loud. (Now in the second stage of crop work)": (X, O)
     },
     "Server Management": {
         "Image Captcha": (O, O), "Web Captcha": (X, O),
@@ -156,7 +156,7 @@ await layout(
                 <div class="detail">
                     <ul>
                         <li>{t(ja="制約あり", en="Limited")}</li>
-                        <li>{t(ja="レート制限あり (下に詳細があります)", en="Rate limited (More details below.)")}</li>
+                        <li>{t(ja='<a href="https://docs.rt.rext.dev/docs/reference/rate_limit" target="_blank">レート制限</a>あり', en="<a href="https://docs.rt.rext.dev/docs/reference/rate_limit" target="_blank">Rate limited</a> (More details below.)")}</li>
                         <li>{t(ja="バグ報告を除いてサポート無し", en="No support except for bug reports")}</li>
                     </ul>
                 </div>
@@ -173,7 +173,7 @@ await layout(
                     <ul>
                         <li>{t(ja="完全な問い合わせ対応", en="Full support")}</li>
                         <li>{t(ja="様々な追加機能", en="Various additional features")}</li>
-                        <li>{t(ja="読み上げ無制限", en="TTS is no limited")}</li>
+                        <li>{t(ja="音声機能限定のRTのサブ機を使用可能", en="Can use RT subs with limited voice functionality")}</li>
                     </ul>
                 </div>
                 <div><hr></div>
